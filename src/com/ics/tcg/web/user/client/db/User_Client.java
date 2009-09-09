@@ -6,16 +6,16 @@ import com.google.gwt.user.client.rpc.IsSerializable;
 
 
 public class User_Client implements IsSerializable {
-	public Integer userid;
-	public String account;
-	public String password;
-	public boolean sex;
-	public Integer age;
-	public Date birthday;
-	public String email;
-	public String tel;
-	public boolean bymail;
-	public boolean bymobile;
+	private Integer userid;
+	private String account;
+	private String password;
+	private boolean sex;
+	private Integer age;
+	private Date birthday;
+	private String email;
+	private String tel;
+	private boolean bymail;
+	private boolean bymobile;
 	
 	public boolean isBymail() {
 		return bymail;

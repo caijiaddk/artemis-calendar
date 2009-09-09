@@ -131,9 +131,9 @@ public class Panel_Setting extends DockPanel {
 					@Override
 					public void onClick(ClickEvent event) {
 						if (radioButton_Female.getValue() == true) {
-							temp.sex = false;
+							temp.setSex(false);
 						} else {
-							temp.sex = true;
+							temp.setSex(true);
 						}
 						if (temp.equals(overview_panel.userMain.userClient) == false) {
 							overview_panel.user_Service.saveUser(temp,
@@ -222,7 +222,7 @@ public class Panel_Setting extends DockPanel {
 				textBox_Age.addChangeHandler(new ChangeHandler() {
 					@Override
 					public void onChange(ChangeEvent arg0) {
-						temp.age = Integer.parseInt(textBox_Age.getValue());
+						temp.setAge(Integer.parseInt(textBox_Age.getValue()));
 					}
 				});
 
@@ -254,7 +254,7 @@ public class Panel_Setting extends DockPanel {
 				year.addChangeHandler(new ChangeHandler() {
 					@Override
 					public void onChange(ChangeEvent event) {
-						temp.birthday.setYear(Integer.parseInt(year
+						temp.getBirthday().setYear(Integer.parseInt(year
 								.getValue(year.getSelectedIndex())) - 1900);
 					}
 				});
@@ -269,7 +269,7 @@ public class Panel_Setting extends DockPanel {
 					@Override
 					public void onChange(ChangeEvent event) {
 						// /////////////////////////////////////////////////////
-						temp.birthday.setMonth(Integer.parseInt(month
+						temp.getBirthday().setMonth(Integer.parseInt(month
 								.getValue(month.getSelectedIndex())) - 1);
 					}
 				});
@@ -283,7 +283,7 @@ public class Panel_Setting extends DockPanel {
 				day.addChangeHandler(new ChangeHandler() {
 					@Override
 					public void onChange(ChangeEvent event) {
-						temp.birthday.setDate(Integer.parseInt(day.getValue(day
+						temp.getBirthday().setDate(Integer.parseInt(day.getValue(day
 								.getSelectedIndex())));
 					}
 				});
@@ -312,7 +312,7 @@ public class Panel_Setting extends DockPanel {
 				textBox_Email.addChangeHandler(new ChangeHandler() {
 					@Override
 					public void onChange(ChangeEvent arg0) {
-						temp.email = textBox_Email.getValue();
+						temp.setEmail(textBox_Email.getValue());
 					}
 				});
 
@@ -338,7 +338,7 @@ public class Panel_Setting extends DockPanel {
 							@Override
 							public void onValueChange(
 									ValueChangeEvent<String> event) {
-								temp.tel = textBox_Tel.getValue();
+								temp.setTel( textBox_Tel.getValue());
 							}
 						});
 
@@ -399,17 +399,17 @@ public class Panel_Setting extends DockPanel {
 										@Override
 										public void onSuccess(String result) {
 											User_Client u = overview_panel.userMain.userClient;
-											u.account = temp.account;
-											u.age = temp.age;
+											u.setAccount(temp.getAccount());
+											u.setAge( temp.getAge());
 											//
-											u.birthday = (Date) temp.birthday.clone();
-											u.bymail = temp.bymail;
-											u.bymobile = temp.bymobile;
-											u.email = temp.email;
-											u.password = temp.password;
-											u.sex = temp.sex;
-											u.tel = temp.tel;
-											u.userid = temp.userid;
+											u.setBirthday((Date) temp.getBirthday().clone());
+											u.setBymail(temp.isBymail());
+											u.setBymobile(temp.isBymobile());
+											u.setEmail( temp.getEmail());
+											u.setPassword( temp.getPassword());
+											u.setSex( temp.getSex());
+											u.setTel( temp.getTel());
+											u.setUserid( temp.getUserid());
 
 											overview_panel.calendar_show();
 										}
@@ -452,7 +452,7 @@ public class Panel_Setting extends DockPanel {
 							@Override
 							public void onValueChange(
 									ValueChangeEvent<Boolean> event) {
-								temp.bymail = checkBox_mail.getValue();
+								temp.setBymail(checkBox_mail.getValue());
 							}
 						});
 				checkBox_mobile
@@ -460,7 +460,7 @@ public class Panel_Setting extends DockPanel {
 							@Override
 							public void onValueChange(
 									ValueChangeEvent<Boolean> event) {
-								temp.bymobile = checkBox_mobile.getValue();
+								temp.setBymobile( checkBox_mobile.getValue());
 							}
 						});
 				flexTable.setWidget(0, 0, label);
@@ -583,32 +583,32 @@ public class Panel_Setting extends DockPanel {
 	public void init() {
 		User_Client u = overview_panel.userMain.userClient;
 
-		temp.account = u.account;
-		temp.age = u.age;
-		temp.birthday = (Date) u.birthday.clone();
-		temp.bymail = u.bymail;
-		temp.bymobile = u.bymobile;
-		temp.email = u.email;
-		temp.password = u.password;
-		temp.sex = u.sex;
-		temp.tel = u.tel;
-		temp.userid = u.userid;
+		temp.setAccount( u.getAccount());
+		temp.setAge( u.getAge());
+		temp.setBirthday((Date) u.getBirthday().clone());
+		temp.setBymail(u.isBymail());
+		temp.setBymobile(u.isBymobile());
+		temp.setEmail(u.getEmail());
+		temp.setPassword(u.getPassword());
+		temp.setSex( u.getSex());
+		temp.setTel( u.getTel());
+		temp.setUserid( u.getUserid());
 
-		lblaccount.setText(u.account);
-		if (u.sex == true) {
+		lblaccount.setText(u.getAccount());
+		if (u.getSex() == true) {
 			radioButton_Male.setValue(true);
 		} else {
 			radioButton_Female.setValue(true);
 		}
-		textBox_Age.setText(Integer.toString(u.age));
-		year.setItemSelected(u.birthday.getYear() - 49, true);
-		month.setItemSelected(u.birthday.getMonth() + 1, true);
-		day.setItemSelected(u.birthday.getDate(), true);
+		textBox_Age.setText(Integer.toString(u.getAge()));
+		year.setItemSelected(u.getBirthday().getYear() - 49, true);
+		month.setItemSelected(u.getBirthday().getMonth() + 1, true);
+		day.setItemSelected(u.getBirthday().getDate(), true);
 		month.setMultipleSelect(false);
-		textBox_Email.setText(u.email);
-		textBox_Tel.setText(u.tel);
-		checkBox_mail.setValue(u.bymail);
-		checkBox_mobile.setValue(u.bymobile);
+		textBox_Email.setText(u.getEmail());
+		textBox_Tel.setText(u.getTel());
+		checkBox_mail.setValue(u.isBymail());
+		checkBox_mobile.setValue(u.isBymobile());
 
 		this.setHeight(Window.getClientHeight() - 90 + "px");
 

@@ -1,0 +1,12 @@
+com.allen_sauer.gwt.dragdrop.client.DragHandlerCollection, true
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true
+com.ics.tcg.web.workflow.client.service.InputInfo, true
+com.ics.tcg.web.workflow.client.service.MethodInfo, true
+com.ics.tcg.web.workflow.client.service.OutputInfo, true
+com.ics.tcg.web.workflow.client.service.ParamInfo, true
+com.ics.tcg.web.workflow.client.service.ServiceInfo, true
+java.lang.Exception, false
+java.lang.RuntimeException, false
+java.lang.String, true
+java.lang.Throwable, false
+java.util.ArrayList, true

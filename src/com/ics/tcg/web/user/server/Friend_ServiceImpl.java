@@ -110,11 +110,11 @@ public class Friend_ServiceImpl extends RemoteServiceServlet implements
 		User user = userdao.getUserByAccount(account);
 		if (user != null) {
 			User_Client user_client = new User_Client();
-			user_client.account = user.getAccount();
-			user_client.age = user.getAge();
-			user_client.email = user.getEmail();
-			user_client.tel = user.getTel();
-			user_client.userid = user.getUserid();
+			user_client.setAccount( user.getAccount());
+			user_client.setAge( user.getAge());
+			user_client.setEmail( user.getEmail());
+			user_client.setTel( user.getTel());
+			user_client.setUserid( user.getUserid());
 			return user_client;
 		} else {
 			return null;

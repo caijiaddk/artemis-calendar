@@ -548,8 +548,8 @@ public class List_Friend extends VerticalPanel {
 							user = result;
 							selectedLabel = (MLabel) label;
 							// Set the info about the contact
-							contactInfo.setHTML(user.account + "<br><i>"
-									+ user.email + "</i><br>" + user.tel);
+							contactInfo.setHTML(user.getAccount() + "<br><i>"
+									+ user.getEmail() + "</i><br>" + user.getTel());
 							// Show the popup of contact info
 							int left = label.getAbsoluteLeft() + 165;
 							int top = label.getAbsoluteTop();

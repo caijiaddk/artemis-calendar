@@ -26,8 +26,8 @@ public class createDB {
 				"jdbc:mysql://localhost:3306/project", "admin", "");
 		stmt = conn.createStatement();
 		 createDB createdb=new createDB();
-	//	 createdb.insertUser();
-	//	 createdb.insertAbservice();
+		 createdb.insertUser();
+		 createdb.insertAbservice();
 		// createdb.insertCalendar();
 		 createdb.insertRecords();
 

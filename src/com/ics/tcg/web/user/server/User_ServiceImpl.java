@@ -11,7 +11,6 @@ import com.ics.tcg.database.bean.User;
 import com.ics.tcg.web.user.client.db.User_Client;
 import com.ics.tcg.web.user.client.remote.User_Service;
 
-
 /**
  * The server side implementation of the RPC service.
  */
@@ -41,16 +40,16 @@ public class User_ServiceImpl extends RemoteServiceServlet implements
 		User user;
 		user = userdao.getUserByID(userid);
 		User_Client userItem = new User_Client();
-		userItem.account = user.getAccount();
-		userItem.age = user.getAge();
-		userItem.birthday = user.getBirthday();
-		userItem.email = user.getEmail();
-		userItem.password = user.getPassword();
-		userItem.sex = user.getSex();
-		userItem.tel = user.getTel();
-		userItem.userid = user.getUserid();
-		userItem.bymail = user.isBymail();
-		userItem.bymobile = user.isBymobile();
+		userItem.setAccount(user.getAccount());
+		userItem.setAge(user.getAge());
+		userItem.setBirthday(user.getBirthday());
+		userItem.setEmail(user.getEmail());
+		userItem.setPassword(user.getPassword());
+		userItem.setSex(user.getSex());
+		userItem.setTel(user.getTel());
+		userItem.setUserid(user.getUserid());
+		userItem.setBymail(user.isBymail());
+		userItem.setBymobile(user.isBymobile());
 		return userItem;
 
 	}
@@ -68,10 +67,10 @@ public class User_ServiceImpl extends RemoteServiceServlet implements
 		user.setSex(userC.getSex());
 		user.setTel(userC.getTel());
 		user.setPassword(userC.getPassword());
-		
+
 		userdao.mergeUser(user);
 		return "success";
-		
+
 	}
 
 	@Override
@@ -86,8 +85,8 @@ public class User_ServiceImpl extends RemoteServiceServlet implements
 		user.setEmail(userC.getEmail());
 		user.setSex(userC.getSex());
 		user.setTel(userC.getTel());
-		user.setPassword(userC.password);
-		
+		user.setPassword(userC.getPassword());
+
 		userdao.mergeUser(user);
 		return "success";
 	}

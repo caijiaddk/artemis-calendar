@@ -22,9 +22,9 @@ import com.ics.tcg.web.user.client.db.User_Client;
 
 public class Panel_Login extends VerticalPanel {
 
-	public TextBox textBoxNameBox;
-	public PasswordTextBox textBoxPaBox;
-	public Button button;
+	private TextBox textBoxNameBox;
+	private PasswordTextBox textBoxPaBox;
+	private Button button;
 
 	public Panel_Login(final User_Main user_Main) {
 
