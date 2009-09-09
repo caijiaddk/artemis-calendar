@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/GWT-1.6.4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jboss"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-cal-0.8.2.jar"/>
@@ -13,5 +12,6 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/mysql-connector-java-5.1.8-bin.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/policy.jar"/>
 	<classpathentry kind="lib" path="/artemis-calendar-database/ics_tcg_database.jar"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
